@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Client\**" />
+    <Content Remove="Client\**" />
+    <EmbeddedResource Remove="Client\**" />
+    <None Remove="Client\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Hangfire" Version="1.8.4" />
     <PackageReference Include="Serilog.AspNetCore" Version="7.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
@@ -15,10 +22,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Ec.Business\Ec.Business.csproj" />
     <ProjectReference Include="..\hangfire\Ec.Worker\Ec.Worker.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Client\" />
   </ItemGroup>
 
 </Project>
