@@ -4,12 +4,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './layouts/app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { ToysModule } from './features/toys/toys.module';
+import { ProductsModule } from './features/products/products.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects'; 
-import { ToysEffects } from './features/toys/store/toys.effects';
-
+import { ProductsEffects } from './features/products/store/products.effects';
+import { CommonModule } from '@angular/common';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -19,9 +21,10 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     BrowserModule,
     CoreModule,
     SharedModule,
-    ToysModule,
-   
-    EffectsModule.forRoot([ToysEffects]),
+    ProductsModule,
+    HttpClientModule,
+    CommonModule,
+    EffectsModule.forRoot([ProductsEffects]),
     isDevMode() ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [],

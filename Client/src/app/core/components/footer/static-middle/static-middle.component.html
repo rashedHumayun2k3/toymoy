@@ -1,0 +1,30 @@
+<div class="footer-static-middle">
+    <div class="container">
+      <div class="footer-logo-wrap pt-50 pb-35">
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-logo">
+              <img src="images/menu/logo/1.jpg" alt="Footer Logo">
+              <p class="info">We are a team of designers and developers that create high-quality templates.</p>
+            </div>
+            <ul class="des">
+              <li><span>Address: </span>6688 Princess Road, London</li>
+              <li><span>Phone: </span><a href="#">(+123) 123 321 345</a></li>
+              <li><span>Email: </span><a href="mailto://info&#64;yourdomain.com">info&#64;yourdomain.com</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-3 col-sm-6" *ngFor="let block of footerBlocks">
+            <div class="footer-block">
+              <h3 class="footer-block-title">{{ block.title }}</h3>
+              <ul>
+                <li *ngFor="let link of block.links">
+                  <a [href]="link.url">{{ link.text }}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

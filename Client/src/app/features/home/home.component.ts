@@ -1,6 +1,8 @@
 // src/app/features/home/home.component.ts
 import { Component, OnInit } from '@angular/core';
-import { ToyListComponent } from '../toys/pages/list/list.component';
+import { SliderComponent } from './components/slider/slider.component';
+import { ProductListComponent } from '../products/components/product-list/product-list.component';
+import { HotSaleProductsComponent } from './components/hot-sale-products/hot-sale-products.component';
 
 interface Product {
   name: string;
@@ -17,7 +19,7 @@ interface ProductSection {
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  imports: [ToyListComponent]
+  imports: [SliderComponent, ProductListComponent, HotSaleProductsComponent]
 })
 export class HomeComponent implements OnInit {
   productSections: ProductSection[] = [];

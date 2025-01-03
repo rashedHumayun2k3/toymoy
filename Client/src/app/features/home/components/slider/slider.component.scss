@@ -1,0 +1,14 @@
+.slider-with-banner {
+    .slider-active {
+        .single-slide {
+            background-size: cover;
+            background-position: center;
+            text-align: left;
+        }
+    }
+    .li-banner {
+        img {
+            max-width: 100%;
+        }
+    }
+}
