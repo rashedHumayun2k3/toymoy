@@ -1,17 +1,15 @@
 // src/app/app.module.ts
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './layouts/app.component';
-import { CoreModule } from './core/core.module';
-import { SharedModule } from './shared/shared.module';
-import { ProductsModule } from './features/products/products.module';
+import { AppComponent } from './components/layouts/app.component';
+import { CoreModule } from './components/environments/core/core.module';
+import { SharedModule } from './components/shared/shared.module';
+import { ProductsModule } from './components/products/products.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects'; 
-import { ProductsEffects } from './features/products/store/products.effects';
-import { CommonModule } from '@angular/common';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HttpClientModule } from '@angular/common/http';
-
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -19,13 +17,14 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     CoreModule,
     SharedModule,
-    ProductsModule,
-    HttpClientModule,
+    ProductsModule,  // Make sure ProductsModule is imported here
     CommonModule,
-    EffectsModule.forRoot([ProductsEffects]),
-    isDevMode() ? StoreDevtoolsModule.instrument() : []
+    StoreModule.forRoot({}, { runtimeChecks: { strictStateSerializability: true, strictActionSerializability: true } }),  // Only for root-level state
+    EffectsModule.forRoot([]),  // No global effects in AppModule
+    isDevMode() ? StoreDevtoolsModule.instrument() : [],  // DevTools only for dev mode
   ],
   providers: [],
   bootstrap: [AppComponent]
