@@ -1,38 +1,33 @@
 import { Component, OnInit  } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { CommonModule } from '@angular/common';
-import { Product } from '../../../models/product.model';
-import { selectProducts } from '../../../store/add-to-cart/cart.selectors';
-import { CartActions } from '../../../store/add-to-cart/cart.actions';
+import { ProductItem } from '../../../models/product.model';
+import { loadProducts } from '../../../store/products/products.actions';
+import { ProductFeatureState, selectAllProducts } from '../../../store/products/products.selectors';
 import { Observable } from 'rxjs';
 
 @Component({
   selector: 'product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
-  imports: [
-    CommonModule
-  ],
+  standalone: true,
+  imports: [CommonModule],
 })
+
 export class ProductListComponent implements OnInit {
-  //products$: Observable<Product[]>;
-  products$!: Observable<ReadonlyArray<Product>>;
+  products$!: Observable<ProductItem[]>;
 
-  constructor(private store: Store) {
-    // Use the selector directly here
-    //this.products$ = this.store.select(selectAllProducts);
+  constructor(private store: Store<ProductFeatureState>) {
+    console.log('constructor called in product list component..');
+    this.products$ = this.store.select(selectAllProducts);
   }
-
-  // ngOnInit(): void {
-  //   // Dispatch action to load products
-  //   this.store.dispatch(loadProducts());
-  // }
-
-  ngOnInit(): void {
-    this.store.dispatch(CartActions.loadProducts()); // Dispatch load products action
-    this.products$ = this.store.select(selectProducts); // Select products from the store
-  }
-  onAddToCart(product: Product) {
-    this.store.dispatch(CartActions.addProduct({ product }));
+   ngOnInit(): void {
+    console.log('ngOnInit called in product list component..');
+    this.store.dispatch(loadProducts());
+   }
+   message: string = 'Hello, click the button to see magic!';
+   onButtonClick(): void {
+    this.message = 'Button clicked! Method executed.';
+    console.log('Button clicked!');
   }
 }

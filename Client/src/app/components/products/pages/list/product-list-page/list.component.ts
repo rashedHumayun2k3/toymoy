@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductsService } from '../../../../../services/products.service';
-import { Product } from '../../../../../models/product.model';
+import { ProductItem } from '../../../../../models/product.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   imports: [CommonModule]
 })
 export class ToyListComponent implements OnInit {
-  toys: Product[] = [];
+  toys: ProductItem[] = [];
 
   constructor(
     private productService: ProductsService, // Inject ToyService

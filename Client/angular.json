@@ -30,12 +30,25 @@
                 "glob": "**/*",
                 "input": "public"
               },
-                "src/assets",
+              "src/assets",
               "src/app/assets"
-              
             ],
             "styles": [
-            
+              "src/assets/css/material-design-iconic-font.min.css",
+              "src/assets/css/font-awesome.min.css",
+              "src/assets/css/fontawesome-stars.css",
+              "src/assets/css/meanmenu.css",
+              "src/assets/css/owl.carousel.min.css",
+              "src/assets/css/slick.css",
+              "src/assets/css/animate.css",
+              "src/assets/css/jquery-ui.min.css",
+              "src/assets/css/venobox.css",
+              "src/assets/css/nice-select.css",
+              "src/assets/css/magnific-popup.css",
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/helper.css",
+              "src/assets/css/style.css",
+              "src/assets/css/responsive.css"
             
             ],
           
@@ -72,13 +85,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "2MB",
+                  "maximumError": "1.5MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "2MB",
+                  "maximumError": "1.5MB"
                 }
               ],
               "outputHashing": "all"
@@ -128,6 +141,7 @@
           }
         }
       }
+
     }
   },
   "cli": {

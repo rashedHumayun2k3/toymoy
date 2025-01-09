@@ -3,14 +3,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { productsReducer } from '../../store/products/products.reducer';
+import { ProductsReducer } from '../../store/products/products.reducer';
 import { ProductsEffects } from '../../store/products/products.effects';
+import { NgPipesModule } from 'ngx-pipes';
+import { ProductListComponent } from '../products/product-list/product-list.component';
+
 
 @NgModule({
+  declarations: [],
   imports: [
     CommonModule,
-    StoreModule.forFeature('products', productsReducer),  // Register the 'products' feature here
-    EffectsModule.forFeature([ProductsEffects]),  // Register effects for the products feature
+    StoreModule.forFeature('products', ProductsReducer),  
+    EffectsModule.forFeature([ProductsEffects]),  
+    NgPipesModule,
+    ProductListComponent
   ],
 })
 export class ProductsModule { }

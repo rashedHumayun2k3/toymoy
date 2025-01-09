@@ -3,13 +3,13 @@ import { Action, createReducer, on } from '@ngrx/store';
 import * as ProductActions from './products.actions';
 
 export interface ProductsState {
-  products: any[];
+  productItems: any[];
   loading: boolean;
   error: any;
 }
 
 export const initialState: ProductsState = {
-  products: [],
+  productItems: [],
   loading: false,
   error: null,
 };
@@ -29,6 +29,7 @@ const _productsReducer = createReducer(
   }))
 );
 
-export function productsReducer(state: ProductsState | undefined, action: Action) {
+export function ProductsReducer(state: ProductsState | undefined, action: Action) {
+  debugger;
   return _productsReducer(state, action);
 }

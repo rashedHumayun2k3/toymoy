@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+//import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { Product } from '../models/product.model';
+import { ProductItem } from '../models/product.model';
+//import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductsService {
-  private apiUrl = 'https://api.toymoy.com/products'; // Replace with your API endpoint
-
-  constructor(private http: HttpClient) {}
-
-  getProducts(): Observable<Product[]> {
+  //private apiUrl = `${environment.apiUrl}/products`;
+  constructor() {}
+  getProducts(): Observable<ProductItem[]> {
+    console.log('Fetching products...');
     return of([
       {
         id: '1',

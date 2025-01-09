@@ -451,7 +451,7 @@ textarea:focus {
 /*----------------------------------------*/
 /*Home One | Slider Background Image*/
 .bg-1, .bg-2, .bg-3 {
-	background-image: url(../images/slider/1.jpg);
+	background-image: url(../images/slider/s-1.jpg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -1903,7 +1903,7 @@ textarea:focus {
 	position: static !important;
 }
 .megamenu-static-holder .hb-megamenu, .megamenu-holder .hb-megamenu {
-	background-image: url(images/menu/li-bg-menu.jpg);
+	background-image: url(../images/menu/li-bg-menu.jpg);
 	background-size: cover;
 	background-position: top;
 	background-repeat: no-repeat;
@@ -2066,7 +2066,7 @@ textarea:focus {
 	font-size: 16px;
 	padding: 20px 0;
 	color: #fff;
-	background-image: url(images/static-top/1.jpg);
+	background-image: url(../images/static-top/static-1.jpg);
 	background-size: cover;
 	margin-top: 20px;
 }
@@ -2655,7 +2655,7 @@ textarea:focus {
 /*  2.7 Li's Static Home Banner
 /*----------------------------------------*/
 .li-static-home-image {
-	background-image: url(images/bg-banner/1.jpg);
+	background-image: url(../images/bg-banner/bg-1.jpg);
 	background-size: cover;
 	height: 400px;
 	background-repeat: no-repeat;

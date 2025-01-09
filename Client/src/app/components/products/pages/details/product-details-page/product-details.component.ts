@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductsService } from '../../../../../services/products.service';
-import { Product } from '../../../../../models/product.model';
+import { ProductItem } from '../../../../../models/product.model';
 
 @Component({
   selector: 'app-product-details',
+  standalone: true,               
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit {
-  product: Product | null = null;
+  product: ProductItem | null = null;
   productId: string = '';
 
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductsService
+  //  private productService: ProductsService
   ) {}
 
   ngOnInit(): void {
