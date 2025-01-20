@@ -1,35 +1,21 @@
 // src/app/features/products/store/products/products.reducer.ts
 import { Action, createReducer, on } from '@ngrx/store';
 import * as ProductActions from './products.actions';
+import { ProductItem } from '../../models/product.model';
 
 export interface ProductsState {
-  productItems: any[];
-  loading: boolean;
-  error: any;
+  items: any[]; // Adjust state to match usage
 }
 
 export const initialState: ProductsState = {
-  productItems: [],
-  loading: false,
-  error: null,
+  items: [],
 };
 
-const _productsReducer = createReducer(
+
+export const productReducer = createReducer(
   initialState,
-  on(ProductActions.loadProducts, (state) => ({ ...state, loading: true })),
-  on(ProductActions.loadProductsSuccess, (state, { products }) => ({
+  on(ProductActions.loadProductsSuccess, (state, { data }) => ({
     ...state,
-    products,
-    loading: false,
-  })),
-  on(ProductActions.loadProductsFailure, (state, { error }) => ({
-    ...state,
-    error,
-    loading: false,
+    items: data,
   }))
 );
-
-export function ProductsReducer(state: ProductsState | undefined, action: Action) {
-  debugger;
-  return _productsReducer(state, action);
-}

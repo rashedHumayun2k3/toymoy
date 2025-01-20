@@ -1,6 +1,9 @@
 // src/app/features/home/home.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ProductListComponent } from '../products/product-list/product-list.component';
+import { CounterbuttonComponent } from '../products/counterbutton/counterbutton.component';
+import { CounterdisplayComponent } from '../products/counterdisplay/counterdisplay.component';
+
 
 interface Product {
   name: string;
@@ -18,7 +21,7 @@ interface ProductSection {
   standalone: true,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  imports: [ProductListComponent]
+  imports: [ProductListComponent, CounterbuttonComponent, CounterdisplayComponent]
 })
 export class HomeComponent implements OnInit {
   productSections: ProductSection[] = [];

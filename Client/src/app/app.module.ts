@@ -12,9 +12,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './router/app.routes';
 import { CartModule } from './components/cart/cart.module';
-import { ProductsModule } from './components/products/products.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { counterReducer } from './store/counter/counter.reducer';
+import { ProductsModule } from './components/products/products.module';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,15 +24,16 @@ import { MatCardModule } from '@angular/material/card';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    StoreModule.forRoot({ counter: counterReducer }),
+    EffectsModule.forRoot([]),
     CoreModule,
     SharedModule,
     CartModule,
-    ProductsModule,
     MatIconModule,
     MatCardModule,
     CommonModule,
-    EffectsModule.forRoot([]),  // No global effects in AppModule
-    isDevMode() ? StoreDevtoolsModule.instrument() : [],  // DevTools only for dev mode
+    ProductsModule,
+    isDevMode() ? StoreDevtoolsModule.instrument({ maxAge: 25 }) : []
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,8 +3,9 @@ import { Store } from '@ngrx/store';
 import { CommonModule } from '@angular/common';
 import { ProductItem } from '../../../models/product.model';
 import { loadProducts } from '../../../store/products/products.actions';
-import { ProductFeatureState, selectAllProducts } from '../../../store/products/products.selectors';
+import { selectAllProducts } from '../../../store/products/products.selectors';
 import { Observable } from 'rxjs';
+import { ProductsState } from '../../../store/products/products.reducer';
 
 @Component({
   selector: 'product-list',
@@ -17,14 +18,13 @@ import { Observable } from 'rxjs';
 export class ProductListComponent implements OnInit {
   products$!: Observable<ProductItem[]>;
 
-  constructor(private store: Store<ProductFeatureState>) {
-    console.log('constructor called in product list component..');
-    this.products$ = this.store.select(selectAllProducts);
+  constructor(private store: Store) {}
+  ngOnInit(): void {
+    this.store.dispatch(loadProducts()); // Dispatch the load action
+    this.products$ = this.store.select(selectAllProducts); // Select products from state
   }
-   ngOnInit(): void {
-    console.log('ngOnInit called in product list component..');
-    this.store.dispatch(loadProducts());
-   }
+
+
    message: string = 'Hello, click the button to see magic!';
    onButtonClick(): void {
     this.message = 'Button clicked! Method executed.';
