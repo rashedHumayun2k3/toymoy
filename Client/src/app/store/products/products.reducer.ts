@@ -4,7 +4,7 @@ import * as ProductActions from './products.actions';
 import { ProductItem } from '../../models/product.model';
 
 export interface ProductsState {
-  items: any[]; // Adjust state to match usage
+  items: any[];
 }
 
 export const initialState: ProductsState = {
@@ -14,8 +14,8 @@ export const initialState: ProductsState = {
 
 export const productReducer = createReducer(
   initialState,
-  on(ProductActions.loadProductsSuccess, (state, { data }) => ({
+  on(ProductActions.loadProductsSuccess, (state, { products }) => ({
     ...state,
-    items: data,
+    items: products,
   }))
 );

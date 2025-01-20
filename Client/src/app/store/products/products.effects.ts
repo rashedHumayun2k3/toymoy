@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { ProductsService } from '../../services/products.service';
-import { loadProducts, loadProductsSuccess } from './products.actions';
+import * as ProductAction from './products.actions';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import { EMPTY, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
@@ -12,11 +12,11 @@ export class ProductsEffects {
 
   loadProducts$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(loadProducts),
+      ofType(ProductAction.loadProducts),
       tap(() => console.log('loadProducts action received')), // Debug
       mergeMap(() =>
         this.productsService.getItems().pipe(
-          map((products) => loadProductsSuccess({ data: products })),
+          map((products) => ProductAction.loadProductsSuccess({ products })),
           catchError((error) => EMPTY),
           tap((products) => console.log('Loaded Products:', products))
         )
